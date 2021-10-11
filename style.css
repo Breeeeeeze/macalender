@@ -73,17 +73,6 @@ header{
 }
 
 
-/*Styling background image
-*/
-#background{
-  top:120px;
-  width:100%;
-  max-width:100%;
-  position:absolute;
-  opacity: 1;
-  z-index:-1;
-}
-
 #headerRect{
   z-index:-1;
   position: absolute;
@@ -128,6 +117,13 @@ header{
   font-family: "Times New Roman", Times, serif;
 }
 
-#background_group{
+
+.bgSizeContain{
+  background-image: url(https://cdn.glitch.me/4836ddc0-1e6a-4032-b2fb-e2198fba4a5a%2Fadmissions-aid-hero2-1440x0-c-default.jpg?v=1633372835702);
   background-size: cover;
+  height: 810px;
+  /*position:fixed;
+  opacity: 1;
+  z-index:-1;*/
+  top:120px;
 }
