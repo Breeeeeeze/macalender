@@ -4,7 +4,7 @@
     
     
     <title>Simple Javascript Calendar</title>
-    <link href="calendar.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
     <script src="calendar.js"></script>
   </head>
   <body>
@@ -22,7 +22,7 @@
       <nav>
         <div id="menu">
           <ul>
-            <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="index.html">Home</a></li>
             <li><a href="calendar.html">Calendar</a></li>
           </ul>
         </div>
@@ -30,10 +30,12 @@
     </div>
     <div id="background_group">
       <!background rectangle navigation bar>
-      <div id="headerRect">
+      <div id="headerRect2">
         <svg width="600" height="120"></svg>
       </div>
-    <div id="cal-wrap">
+    
+    <div id=  calendar>
+    <div id= "cal-wrap">
       <!-- [PERIOD SELECTOR] -->
       <div id="cal-date">
         <select id="cal-mth"></select>
@@ -46,6 +48,7 @@
 
       <!-- [EVENT] -->
       <div id="cal-event"></div>
+    </div>
     </div>
   </body>
 </html>
