@@ -145,8 +145,8 @@ position:absolute;}
   border: 0;
   color: #fff;
 }
-#cal-mth, #cal-yr { background: #ea4c4c; }
-#cal-set { background: #4e83d9; }
+#cal-mth, #cal-yr { background: rgb(13,60, 97); }
+#cal-set { background: rgb(239,79 ,38); }
 
 /* [CALENDAR] */
 #calendar {
@@ -163,7 +163,7 @@ position:absolute;}
   font-weight: bold;
   text-transform: uppercase;
   color: #fff;
-  background: #f37070;
+  background: rgb(13,60, 97) ;
   padding: 15px;
   text-align: center;
 }
@@ -174,7 +174,7 @@ position:absolute;}
   vertical-align: top;
 }
 #calendar tr.day td:hover {
-  background: #fff9e4;
+  background: rgb(13,60, 97);
   cursor: pointer;
 }
 #calendar tr td.blank {
