@@ -135,7 +135,9 @@ header{
 }
 
 /* [PERIOD SELECTOR] */
-#cal-date { display: flex; }
+#cal-date { display: flex; 
+left:25px;
+position:absolute;}
 #cal-mth, #cal-yr, #cal-set {
   box-sizing: border-box;
   padding: 10px 20px;
@@ -150,6 +152,7 @@ header{
 #calendar {
   position:absolute;
   top:130px;
+  left:25px;
   width:800px;
   height: 500px;
   border-collapse: collapse;
