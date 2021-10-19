@@ -52,7 +52,7 @@ header{
     font-weight: 600;
     text-transform: uppercase;
     line-height: 60px;
-    font-family: "Times New Roman", Times, serif;
+    font-family: Garamond, serif;
 }
      
 #menu li a{
@@ -93,6 +93,7 @@ header{
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  font-family: Garamond, serif;
 }
 
 .but1{
@@ -110,16 +111,19 @@ header{
   font-weight: 600;
   text-transform: uppercase;
   font-family: "Times New Roman", Times, serif;
+  font-family: Garamond, serif;
 }
 
 
 .bgSizeContain{
   background-image: url(https://cdn.glitch.me/4836ddc0-1e6a-4032-b2fb-e2198fba4a5a%2Fadmissions-aid-hero2-1440x0-c-default.jpg?v=1633372835702);
   background-size: cover;
-  height: 810px;
+  height: 1000px;
   position:relative;
   top:120px;
   opacity: 1;
   z-index:-1;
   
 }
+
+

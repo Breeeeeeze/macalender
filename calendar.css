@@ -92,3 +92,19 @@
 html, body, textarea, input {
   font-family: arial, sans-serif;
 }
+
+#logo{
+    float: left;
+    padding: none;
+    margin: none;
+    height: 100px;
+}
+ 
+#logo img{
+    z-index=10;
+    float: left;
+    padding: 10px 10px;
+    position:absolute;
+    height:110px
+} 
+ 
