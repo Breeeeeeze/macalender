@@ -1,3 +1,4 @@
+/*https://code-boxx.com/simple-pure-javascript-calendar-events/*/
 var cal = {
   // (A) PROPERTIES
   mName : ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], // Month Names
