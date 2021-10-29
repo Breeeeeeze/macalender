@@ -3,6 +3,8 @@ var cal = {
   // (A) PROPERTIES
   mName : ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], // Month Names
   data : null, // Events for the selected period
+  startData:null, //Start time for event
+  concatData:null, //Concat start and event data
   sDay : 0, // Current selected day
   sMth : 0, // Current selected month
   sYear : 0, // Current selected year
@@ -26,6 +28,13 @@ var cal = {
       cal.data = {};
     } else {
       cal.data = JSON.parse(cal.data);
+    }
+    cal.startData = localStorage.getItem("cal-" + cal.sMth + "-" + cal.sYear);
+    if (cal.startData==null) {
+      localStorage.setItem("cal-" + cal.sMth + "-" + cal.sYear, "{}");
+      cal.startData = {};
+    } else {
+      cal.startData = JSON.parse(cal.startData);
     }
 
     // (B3) DRAWING CALCULATIONS
@@ -138,10 +147,13 @@ var cal = {
     evt.stopPropagation();
     evt.preventDefault();
     cal.data[cal.sDay] = document.getElementById("evt-details").value;
+    cal.startData[cal.sDay] = document.getElementById("start").value;
+    // var concat = cal.data[cal.sDay] + " " + cal.startData[cal.sDay];
+    // cal.concatData[cal.sDay] = concat;
     // cal.data[cal.sDay] = document.getElementById("name").value;
     // cal.data[cal.sDay] = document.getElementById("start").value;
     // cal.data[cal.sDay] = document.getElementById("end").value;
-    localStorage.setItem("cal-" + cal.sMth + "-" + cal.sYear, JSON.stringify(cal.data));
+    localStorage.setItem("cal-" + cal.sMth + "-" + cal.sYear, JSON.stringify(cal.startData));
     cal.list();
   },
 
