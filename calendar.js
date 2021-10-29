@@ -4,6 +4,7 @@ var cal = {
   mName : ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], // Month Names
   data : null, // Events for the selected period
   startData:null, //Start time for event
+  endData:null,
   concatData:null, //Concat start and event data
   sDay : 0, // Current selected day
   sMth : 0, // Current selected month
@@ -35,6 +36,21 @@ var cal = {
       cal.startData = {};
     } else {
       cal.startData = JSON.parse(cal.startData);
+    }
+    
+    cal.concatData = localStorage.getItem("cal-" + cal.sMth + "-" + cal.sYear);
+    if (cal.concatData==null) {
+      localStorage.setItem("cal-" + cal.sMth + "-" + cal.sYear, "{}");
+      cal.concatData = {};
+    } else {
+      cal.concatData = JSON.parse(cal.concatData);
+    }
+    cal.endData = localStorage.getItem("cal-" + cal.sMth + "-" + cal.sYear);
+    if (cal.endData==null) {
+      localStorage.setItem("cal-" + cal.sMth + "-" + cal.sYear, "{}");
+      cal.endData = {};
+    } else {
+      cal.endData = JSON.parse(cal.endData);
     }
 
     // (B3) DRAWING CALCULATIONS
@@ -118,12 +134,13 @@ var cal = {
     // (C2) DRAW EVENT FORM - ADD EVENT FORM
     var tForm = "<h1>" + (cal.data[cal.sDay] ? "EDIT" : "ADD") + " EVENT</h1>";
     tForm += "<div id='evt-date'>" + cal.sDay + " " + cal.mName[cal.sMth] + " " + cal.sYear + "</div>";
-    tForm += "<textarea id='evt-details' required>" + (cal.data[cal.sDay] ? cal.data[cal.sDay] : "Event") + "</textarea>";
+    //tForm += "<textarea id='evt-details' required>" + (cal.data[cal.sDay] ? cal.data[cal.sDay] : "Event") + "</textarea>";
+    tForm += "<textarea id='evt-details' required>" + "</textarea>";
     // tForm += "<textarea id='name' required>" + (cal.data[cal.sDay] ? cal.data[cal.sDay] : "Name") + "</textarea>";
     // tForm += "<textarea id='start' required>" + (cal.data[cal.sDay] ? cal.data[cal.sDay] : "Start Time") + "</textarea>";
     // tForm += "<textarea id='end' required>" + (cal.data[cal.sDay] ? cal.data[cal.sDay] : "End Time") + "</textarea>";
-    tForm += "<select id = 'start' onchange = 'favTutorial()'' > <option> ---start time--- </option> <option> 1 pm </option> <option> 2 pm </option> </select>";
-    tForm += "<select id = 'finish' onchange = 'favTutorial()'' > <option> ---finish time--- </option> <option> 1 pm </option> <option> 2 pm </option> </select>";
+    tForm += "<select id = 'start' onchange = 'favTutorial()'' > <option> ---Start time--- </option> <option> 12 am </option> <option> 1 am </option> <option> 2 am </option> <option> 3 am </option> <option> 4 am </option> <option> 5 am </option> <option> 5 am </option> <option> 6 am </option> <option> 7 am </option> <option> 8 am </option> <option> 9 am </option> <option> 10 am </option> <option> 11 am </option> <option> 12 pm </option>  <option> 1 pm </option> <option> 2 pm </option> <option> 3 pm </option> <option> 4 pm </option> <option> 5 pm </option> <option> 6 pm </option> <option> 7 pm </option> <option> 8 pm </option> <option> 9 pm </option> <option> 10 pm </option> <option> 11 pm </option> </select>";
+    tForm += "<select id = 'finish' onchange = 'favTutorial()'' > <option> ---End time--- </option> <option> 12 am </option> <option> 1 am </option> <option> 2 am </option> <option> 3 am </option> <option> 4 am </option> <option> 5 am </option> <option> 5 am </option> <option> 6 am </option> <option> 7 am </option> <option> 8 am </option> <option> 9 am </option> <option> 10 am </option> <option> 11 am </option> <option> 12 pm </option>  <option> 1 pm </option> <option> 2 pm </option> <option> 3 pm </option> <option> 4 pm </option> <option> 5 pm </option> <option> 6 pm </option> <option> 7 pm </option> <option> 8 pm </option> <option> 9 pm </option> <option> 10 pm </option> <option> 11 pm </option> </select>";
     tForm += "<input type='button' value='Close' onclick='cal.close()'/>";
     tForm += "<input type='button' value='Delete' onclick='cal.del()'/>";
     tForm += "<input type='submit' value='Save'/>";
@@ -148,12 +165,10 @@ var cal = {
     evt.preventDefault();
     cal.data[cal.sDay] = document.getElementById("evt-details").value;
     cal.startData[cal.sDay] = document.getElementById("start").value;
-    // var concat = cal.data[cal.sDay] + " " + cal.startData[cal.sDay];
-    // cal.concatData[cal.sDay] = concat;
-    // cal.data[cal.sDay] = document.getElementById("name").value;
-    // cal.data[cal.sDay] = document.getElementById("start").value;
-    // cal.data[cal.sDay] = document.getElementById("end").value;
-    localStorage.setItem("cal-" + cal.sMth + "-" + cal.sYear, JSON.stringify(cal.startData));
+    cal.endData[cal.sDay] = document.getElementById("finish").value;
+    var concat = cal.startData[cal.sDay] + " - "+cal.endData[cal.sDay]+" " + cal.data[cal.sDay];
+    cal.concatData[cal.sDay] = concat;
+    localStorage.setItem("cal-" + cal.sMth + "-" + cal.sYear, JSON.stringify(cal.concatData));
     cal.list();
   },
 
