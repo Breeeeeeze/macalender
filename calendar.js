@@ -106,13 +106,14 @@ var cal = {
     // (C1) FETCH EXISTING DATA
     cal.sDay = el.getElementsByClassName("dd")[0].innerHTML;
 
-    // (C2) DRAW EVENT FORM
+    // (C2) DRAW EVENT FORM - ADD EVENT FORM
     var tForm = "<h1>" + (cal.data[cal.sDay] ? "EDIT" : "ADD") + " EVENT</h1>";
     tForm += "<div id='evt-date'>" + cal.sDay + " " + cal.mName[cal.sMth] + " " + cal.sYear + "</div>";
     tForm += "<textarea id='evt-details' required>" + (cal.data[cal.sDay] ? cal.data[cal.sDay] : "Event") + "</textarea>";
     // tForm += "<textarea id='name' required>" + (cal.data[cal.sDay] ? cal.data[cal.sDay] : "Name") + "</textarea>";
     // tForm += "<textarea id='start' required>" + (cal.data[cal.sDay] ? cal.data[cal.sDay] : "Start Time") + "</textarea>";
     // tForm += "<textarea id='end' required>" + (cal.data[cal.sDay] ? cal.data[cal.sDay] : "End Time") + "</textarea>";
+    tform += <
     tForm += "<input type='button' value='Close' onclick='cal.close()'/>";
     tForm += "<input type='button' value='Delete' onclick='cal.del()'/>";
     tForm += "<input type='submit' value='Save'/>";
