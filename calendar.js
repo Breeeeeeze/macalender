@@ -113,6 +113,12 @@ var cal = {
     // tForm += "<textarea id='name' required>" + (cal.data[cal.sDay] ? cal.data[cal.sDay] : "Name") + "</textarea>";
     // tForm += "<textarea id='start' required>" + (cal.data[cal.sDay] ? cal.data[cal.sDay] : "Start Time") + "</textarea>";
     // tForm += "<textarea id='end' required>" + (cal.data[cal.sDay] ? cal.data[cal.sDay] : "End Time") + "</textarea>";
+    tForm += 
+    <select id = "myList" onchange = "favTutorial()" >
+    <option> ---start time--- </option>
+    <option> 1 pm </option>
+    <option> 2 pm </option>
+    </select>
     tForm += "<input type='button' value='Close' onclick='cal.close()'/>";
     tForm += "<input type='button' value='Delete' onclick='cal.del()'/>";
     tForm += "<input type='submit' value='Save'/>";
