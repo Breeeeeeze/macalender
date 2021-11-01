@@ -1,4 +1,25 @@
 /*https://code-boxx.com/simple-pure-javascript-calendar-events/*/
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCn2jEH5aiF67SdeCVqrce7eDBwc9MqNiU",
+    authDomain: "macalendartest.firebaseapp.com",
+    projectId: "macalendartest",
+    storageBucket: "macalendartest.appspot.com",
+    messagingSenderId: "611450666224",
+    appId: "1:611450666224:web:dd5536698b44df2e3bd635",
+    measurementId: "G-CXH35XSMDH"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
 var cal = {
   // (A) PROPERTIES
   mName : ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], // Month Names
