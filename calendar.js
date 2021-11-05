@@ -1,24 +1,24 @@
-/*https://code-boxx.com/simple-pure-javascript-calendar-events/*/
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+// /*https://code-boxx.com/simple-pure-javascript-calendar-events/*/
+// import { initializeApp } from 'firebase/app';
+// import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+//   // TODO: Add SDKs for Firebase products that you want to use
+//   // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyCn2jEH5aiF67SdeCVqrce7eDBwc9MqNiU",
-    authDomain: "macalendartest.firebaseapp.com",
-    projectId: "macalendartest",
-    storageBucket: "macalendartest.appspot.com",
-    messagingSenderId: "611450666224",
-    appId: "1:611450666224:web:dd5536698b44df2e3bd635",
-    measurementId: "G-CXH35XSMDH"
-  };
+//   // Your web app's Firebase configuration
+//   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+//   const firebaseConfig = {
+//     apiKey: "AIzaSyCn2jEH5aiF67SdeCVqrce7eDBwc9MqNiU",
+//     authDomain: "macalendartest.firebaseapp.com",
+//     projectId: "macalendartest",
+//     storageBucket: "macalendartest.appspot.com",
+//     messagingSenderId: "611450666224",
+//     appId: "1:611450666224:web:dd5536698b44df2e3bd635",
+//     measurementId: "G-CXH35XSMDH"
+//   };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
+//   // Initialize Firebase
+//   const app = initializeApp(firebaseConfig);
+//   const db = getFirestore(app);
 
 var cal = {
   // (A) PROPERTIES
