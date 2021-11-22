@@ -115,6 +115,8 @@ var cal = {
   sMth : 0, // Current selected month
   sYear : 0, // Current selected year
   sMon : false, // Week start on Monday?
+  itemTest:[{"day":"11","evtDetails":"event1","finish":"3 pm","month":"10","start":"2 pm","year":"2021"},{"day":"21","evtDetails":"event1","finish":"3 pm","month":"10","start":"2 pm","year":"2021"},{"day":"30","evtDetails":"event1","finish":"3 pm","month":"10","start":"2 pm","year":"2021"}],
+
 
   // (B) DRAW CALENDAR FOR SELECTED MONTH
   list : function () {
@@ -159,6 +161,14 @@ console.log('!!! hello world');
       cal.endData = {};
     } else {
       cal.endData = JSON.parse(cal.endData);
+    }
+    cal.fireBaseData = localStorage.getItem("cal-" + cal.sMth + "-" + cal.sYear);
+    console.log(cal.fireBaseData);
+    if (cal.fireBaseData==null) {
+      localStorage.setItem("cal-" + cal.sMth + "-" + cal.sYear, "{}");
+      cal.fireBaseData = {};
+    } else {
+      cal.fireBaseData = JSON.parse(cal.fireBaseData);
     }
 
     // (B3) DRAWING CALCULATIONS
@@ -339,6 +349,25 @@ console.log('!!! hello world');
     cal.concatData[cal.sDay] = concat;
     localStorage.setItem("cal-" + cal.sMth + "-" + cal.sYear, JSON.stringify(cal.concatData));
     cal.list();
+    cal.loadFBase(cal.itemTest);
+  },
+  
+  loadFBase : function(itemTest){
+    for(var i = 0; i<itemTest.length;i++){
+      cal.sDay = itemTest[i]["day"];
+      cal.sMth = itemTest[i]["month"];
+      cal.sYear = itemTest[i]["year"];
+
+      cal.startData[cal.sDay] = itemTest[i]["start"];
+      cal.endData[cal.sDay] = itemTest[i]["finish"];
+      cal.data[cal.sDay] = itemTest[i]["evtDetails"];
+
+      concat = cal.startData[cal.sDay] + " - "+cal.endData[cal.sDay]+" " + cal.data[cal.sDay];
+      cal.fireBaseData[cal.sDay] = concat;
+
+      localStorage.setItem("cal-" + cal.sMth + "-" + cal.sYear, JSON.stringify(cal.fireBaseData));
+      cal.list();
+    }
   },
 
   // (F) DELETE EVENT FOR SELECTED DATE
@@ -384,4 +413,5 @@ window.addEventListener("load", function () {
   cal.list();
   cal.list();
   cal.list();
+  cal.loadFBase(cal.itemTest);
 });
